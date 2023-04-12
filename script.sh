@@ -295,6 +295,7 @@ echo "      });" >> main.js
 echo "  });" >> main.js
 git add .
 git commit -m "Get weather information"
+rm main.js
 echo "const express = require('express');" >> main.js
 echo "const app = express();  " >> main.js
 echo "const axios = require('axios');" >> main.js
