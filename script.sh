@@ -278,7 +278,7 @@ echo "" >> main.js
 echo "const PORT = process.env.PORT || 3000;" >> main.js
 echo "" >> main.js
 echo "app.listen(PORT, () => {" >> main.js
-echo "  console.log(`Server listening on port ${PORT}`);" >> main.js
+echo '  console.log(`Server listening on port ${PORT}`);' >> main.js
 echo "});" >> main.js
 echo "" >> main.js
 echo "app.get('/weather/:city', (req, res) => {" >> main.js
