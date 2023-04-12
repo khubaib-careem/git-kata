@@ -268,7 +268,6 @@ echo "Zimbabwe,ZW" >> country-mappings.csv
 git add country-mappings.csv
 git commit -m "Add countries starting from U-Z"
 rm country-mappings.csv
-rm main.js
 echo "const express = require('express');" >> main.js
 echo "const app = express();  " >> main.js
 echo "const axios = require('axios');" >> main.js
