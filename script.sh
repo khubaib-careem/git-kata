@@ -325,7 +325,7 @@ echo "      .then(response => {" >> main.js
 echo "        const { main, sys } = response.data;" >> main.js
 echo "        const temperature = main.temp;" >> main.js
 echo "        const country = countryNames[sys.country] || sys.country;" >> main.js
-echo "        const message = `The weather in ${capitalizedCity}, ${country} is ${temperature}°C`;" >> main.js
+echo '        const message = `The weather in ${capitalizedCity}, ${country} is ${temperature}°C`;' >> main.js
 echo "        res.send(message);" >> main.js
 echo "      })" >> main.js
 echo "      .catch(error => {" >> main.js
@@ -337,7 +337,7 @@ echo "" >> main.js
 echo "" >> main.js
 echo "const PORT = process.env.PORT || 3000;" >> main.js
 echo "app.listen(PORT, () => {" >> main.js
-echo "  console.log(`Server listening on port ${PORT}`);" >> main.js
+echo '  console.log(`Server listening on port ${PORT}`);' >> main.js
 echo "});" >> main.js
 git add .
 git commit -m "Human readable message added"
