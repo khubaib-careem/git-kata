@@ -293,3 +293,51 @@ echo "        console.log(error);" >> main.js
 echo "        res.status(500).send('Error fetching weather data');" >> main.js
 echo "      });" >> main.js
 echo "  });" >> main.js
+git add .
+git commit -m "Get weather information"
+echo "const express = require('express');" >> main.js
+echo "const app = express();  " >> main.js
+echo "const axios = require('axios');" >> main.js
+echo "" >> main.js
+echo "const API_KEY = '49aa5fba3bea97942b90799f43efa429';" >> main.js
+echo "const fs = require('fs');" >> main.js
+echo "const csv = require('csv-parser');" >> main.js
+echo "" >> main.js
+echo "const countryNames = {};" >> main.js
+echo "" >> main.js
+echo "fs.createReadStream('country-mappings.csv')" >> main.js
+echo "  .pipe(csv())" >> main.js
+echo "  .on('data', (row) => {" >> main.js
+echo "    const country = row.Country;" >> main.js
+echo "    const countryCode = row['country-code'];" >> main.js
+echo "    countryNames[countryCode] = country;" >> main.js
+echo "  })" >> main.js
+echo "  .on('end', () => {" >> main.js
+echo "    console.log(countryNames);" >> main.js
+echo "  });" >> main.js
+echo "app.get('/weather/:city', (req, res) => {" >> main.js
+echo "    const city = req.params.city;" >> main.js
+echo "    const capitalizedCity = city.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');" >> main.js
+echo '    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;' >> main.js
+echo "    " >> main.js
+echo "    axios.get(apiUrl)" >> main.js
+echo "      .then(response => {" >> main.js
+echo "        const { main, sys } = response.data;" >> main.js
+echo "        const temperature = main.temp;" >> main.js
+echo "        const country = countryNames[sys.country] || sys.country;" >> main.js
+echo "        const message = `The weather in ${capitalizedCity}, ${country} is ${temperature}°C`;" >> main.js
+echo "        res.send(message);" >> main.js
+echo "      })" >> main.js
+echo "      .catch(error => {" >> main.js
+echo "        console.log(error);" >> main.js
+echo "        res.status(500).send('Error fetching weather data');" >> main.js
+echo "      });" >> main.js
+echo "  });" >> main.js
+echo "" >> main.js
+echo "" >> main.js
+echo "const PORT = process.env.PORT || 3000;" >> main.js
+echo "app.listen(PORT, () => {" >> main.js
+echo "  console.log(`Server listening on port ${PORT}`);" >> main.js
+echo "});" >> main.js
+git add .
+git commit -m "Human readable message added"
